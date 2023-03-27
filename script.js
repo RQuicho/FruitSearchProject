@@ -28,11 +28,16 @@ function search() {
 }
 
 function searchHandler(e) {
+
 	// TODO
 }
 
-function showSuggestions(results, inputVal) {
-
+function showSuggestions() {
+	// add newFruitArr ul in .suggestions
+	const newLi = document.createElement('li');
+	newLi.innerText = search();
+	suggestions.append(newLi);
+	
 	// TODO
 }
 
@@ -40,5 +45,6 @@ function useSuggestion(e) {
 	// TODO
 }
 
-input.addEventListener('keyup', searchHandler);
+// input.addEventListener('keyup', searchHandler);
+input.addEventListener('keyup', search);
 suggestions.addEventListener('click', useSuggestion);
