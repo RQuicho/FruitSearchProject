@@ -1,11 +1,11 @@
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
 
-const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
+const fruits = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
 function search() {
 	const lowerCaseInput = input.value.toLowerCase();
-	const lowerCaseFruitArr = fruit.map(x => x.toLowerCase());
+	const lowerCaseFruitArr = fruits.map(x => x.toLowerCase());
 
 	const filteredSearch = lowerCaseFruitArr.filter(word => word.includes(lowerCaseInput));
 
@@ -21,18 +21,24 @@ function searchHandler(e) {
 
 function showSuggestions() {
 	// add newFruitArr ul in .suggestions
-	const newLi = document.createElement('li');
-	newLi.innerText = search();
-	suggestions.append(newLi);
-	// need to clear after keydown
-	
-	// suggestions.removeChild(newLi);
-	// TODO
+	search().forEach(fruit => {
+		const newLi = document.createElement('li');
+		newLi.innerText = fruit;
+		suggestions.append(newLi);
+	});
 }
 
 function clearSuggestions() {
-	suggestions.removeChild(document.querySelector('li'));
-	// newLi.innerText = '';
+	// suggestions.removeChild(document.querySelector('li'));
+	while (suggestions.firstChild) {
+		suggestions.removeChild(suggestions.firstChild);
+	}
+
+	// let element = document.getElementById("idOfParent");
+	// while (element.firstChild) {
+	// 	element.removeChild(element.firstChild);
+	// }
+	
 }
 
 function useSuggestion(e) {
