@@ -42,6 +42,11 @@ function clearSuggestions() {
 }
 
 function useSuggestion(e) {
+	console.log(`e.target = ${e.target}`);
+	input.value = e.target.innerText;
+	while (suggestions.firstChild) {
+		suggestions.removeChild(suggestions.firstChild);
+	}
 	// TODO
 }
 
