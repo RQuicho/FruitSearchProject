@@ -1,46 +1,56 @@
-* {
-  /* box-sizing: border-box; */
-}
+/* // https://colordesigner.io/#3B596A-427676-3F9A82-A1CD73-ECDB60 */
 
 :focus {
- /* TODO */
+  background-color: rgb(236, 219, 96);
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
 }
 
 body {
-  /* TODO */
+  text-align: center;
+  margin: auto;
+  padding: 15% 0px;
+  background-color: rgb(161, 205, 115); /*if browser doesn't support gradient */
+  background-image: linear-gradient(to bottom right, rgb(161, 205, 115), rgb(236, 219, 96));
 }
 
 input {
- /* TODO */
+  background-color: rgb(236, 219, 96);
+  text-align: left;
+  padding: 10px;
+  width: 300px;
+  border-radius: 7px;
+  border: solid rgb(59, 89, 106);
 }
 
-.search-container {
- /* TODO */
-}
-.search-container input,
 .search-container .suggestions {
-  /* TODO */
-}
-.search-container input {
- /* TODO */
-}
-.search-container .suggestions {
-   /* TODO */
+  text-align: center;
 }
 
 ul {
-  /* TODO */
-}
-ul.has-suggestions {
-  /* TODO */
-}
-ul li {
-  /* TODO */
-}
-ul li:hover {
-  /* TODO */
+  width: 320px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0;
 }
 
-input {
-   /* TODO */
+
+ul li {
+  background-color: rgb(236, 219, 96);
+  text-align: left;
+  display: block;
+  padding: 10px;
+}
+
+ul li:hover {
+  background-color: rgb(63, 154, 130);
+  width: 300px;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }

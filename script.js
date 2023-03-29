@@ -15,10 +15,6 @@ function search() {
 	// TODO	
 }
 
-function searchHandler(e) {
-	// TODO
-}
-
 function showSuggestions() {
 	// add newFruitArr ul in .suggestions
 	search().forEach(fruit => {
@@ -29,28 +25,19 @@ function showSuggestions() {
 }
 
 function clearSuggestions() {
-	// suggestions.removeChild(document.querySelector('li'));
 	while (suggestions.firstChild) {
 		suggestions.removeChild(suggestions.firstChild);
 	}
-
-	// let element = document.getElementById("idOfParent");
-	// while (element.firstChild) {
-	// 	element.removeChild(element.firstChild);
-	// }
-	
 }
 
 function useSuggestion(e) {
-	console.log(`e.target = ${e.target}`);
 	input.value = e.target.innerText;
 	while (suggestions.firstChild) {
 		suggestions.removeChild(suggestions.firstChild);
 	}
-	// TODO
 }
 
-// input.addEventListener('keyup', searchHandler);
+
 input.addEventListener('keyup', showSuggestions);
 input.addEventListener('keydown', clearSuggestions);
 suggestions.addEventListener('click', useSuggestion);
