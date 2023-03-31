@@ -15,8 +15,15 @@ function search() {
 	// TODO	
 }
 
+function clearSuggestions() {
+	while (suggestions.firstChild) {
+		suggestions.removeChild(suggestions.firstChild);
+	}
+}
+
 function showSuggestions() {
 	// add newFruitArr ul in .suggestions
+	clearSuggestions();
 	search().forEach(fruit => {
 		const newLi = document.createElement('li');
 		newLi.innerText = fruit;
@@ -24,20 +31,16 @@ function showSuggestions() {
 	});
 }
 
-function clearSuggestions() {
-	while (suggestions.firstChild) {
-		suggestions.removeChild(suggestions.firstChild);
-	}
-}
 
 function useSuggestion(e) {
 	input.value = e.target.innerText;
-	while (suggestions.firstChild) {
-		suggestions.removeChild(suggestions.firstChild);
-	}
+	// while (suggestions.firstChild) {
+	// 	suggestions.removeChild(suggestions.firstChild);
+	// }
+	clearSuggestions();
 }
 
 
 input.addEventListener('keyup', showSuggestions);
-input.addEventListener('keydown', clearSuggestions);
+// input.addEventListener('keydown', clearSuggestions);
 suggestions.addEventListener('click', useSuggestion);
